@@ -1,0 +1,108 @@
+/* frontend/src/index.css */
+
+/* 📥 Injection du moteur graphique Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* ⚡ LE CORRECTIF TAILWIND v4 CRITIQUE : Active le pilotage manuel par classe .dark sur <html> */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* 🎨 CHARTE GRAPHIQUE ÉPURÉE ET CHALEUREUSE (Style Galerie d'Art Canadien) */
+  --text: #4b5563;          /* gray-600 */
+  --text-h: #1c1917;        /* stone-900 (Noir adouci haut de gamme) */
+  
+  /* 🌾 ACCENTS CRÈME & LIN DE PRESTIGE */
+  --bg: #faf9f6;            /* Fond Lin Chaleureux ultra-agréable pour les yeux */
+  --card-bg: #ffffff;       /* Ivoire pur pour détacher les cadres produits */
+  --border: #f1f0ea;        /* Bordure lin ombrée discrète */
+  --code-bg: #eae8e1;       
+  
+  /* 🍁 ACCENTS OFFICIELS DU DRAPEAU DU CANADA */
+  --accent: #e02424;        /* Rouge Écarlate Canadien (red-600) */
+  --accent-bg: rgba(224, 36, 36, 0.04); 
+  --accent-border: rgba(224, 36, 36, 0.15);
+  --shadow: rgba(28, 25, 23, 0.03) 0px 2px 4px 0px, rgba(28, 25, 23, 0.02) 0px 1px 2px 0px;
+
+  --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🌓 AMBIANCE INTERRUPTEUR MANUEL (Invoquée par la classe .dark sur <html>) */
+.dark {
+  --text: #a8a29e;        /* stone-400 */
+  --text-h: #f5f5f4;      /* stone-100 */
+  --bg: #0c0a09;          /* stone-950 (Fonds sombres profonds chaleureux d'encre) */
+  --card-bg: #1c1917;     /* stone-900 */
+  --border: #2e2a24;      
+  --code-bg: #1c1917;     
+  --accent: #ef4444;      /* red-500 */
+  --accent-bg: rgba(239, 68, 68, 0.08);
+  --accent-border: rgba(239, 68, 68, 0.25);
+  --shadow: rgba(0, 0, 0, 0.4) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+}
+
+/* 🧹 Application de la nouvelle ambiance lin/crème sur le site */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* 🍁 Sélection de texte aux couleurs nationales */
+::selection {
+  background-color: #fee2e2; 
+  color: #991b1b;            
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border: none;
+}
+
+/* 👟 Sécurité anti-déformation globale pour toutes les images du catalogue */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 🏆 Carte Produit Multi-Colonnes Chaleureuse en Ivoire Pur */
+.premium-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.5s cubic-bezier(0.3, 0, 0, 1);
+}
+.premium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(220, 38, 38, 0.03) 0px 20px 25px -5px, rgba(28, 25, 23, 0.02) 0px 10px 10px -5px;
+  border-color: rgba(220, 38, 38, 0.12);
+}
+
+/* Barrettes de défilement discrètes et minimalistes */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
